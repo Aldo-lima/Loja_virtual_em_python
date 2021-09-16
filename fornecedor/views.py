@@ -1,3 +1,70 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.urls import reverse
+from .models import Fornecedor
+from django.core.paginator import Paginator
+from .forms import ForncedorForm
 
-# Create your views here.
+
+def fornecedores(request):
+    fornecedor_list = Fornecedor.objects.all()
+    paginator = Paginator(fornecedor_list, 10)
+    page = request.GET.get('page')
+    fornecedores = paginator.get_page(page)
+    return render(request, 'fornecedor/list_fornecedor.html', {'fornecedores': fornecedores})
+
+
+def novoFornecedor(request):
+       form = ForncedorForm
+       if request.method == "POST":
+        form = ForncedorForm(request.POST)
+       if form.is_valid():
+            form.save()
+            return redirect('listar_fornecedor')
+       else:
+            context = {
+                'form': form,
+            }
+            return render(request, 'fornecedor/create_fornecedor.html', context)
+
+
+def fornecedorEditar(request, id):
+    if request.method == "GET":
+        objeto = Fornecedor.objects.filter(id=id).first()
+        if objeto is None:
+            return redirect('listar_fornecedor')
+        form = ForncedorForm(instance=objeto)
+        context = {
+           'form': form,
+        }
+        return render(request, 'fornecedor/edite_fornecedor.html', context)
+    elif request.method == "POST":
+        objeto = Fornecedor.objects.filter(id=id).first()
+        if objeto is None:
+            return redirect(reverse('listar_fornecedor'))
+        form = ForncedorForm(request.POST, instance=objeto)
+        if form.is_valid():
+             form.save()
+             return redirect('listar_fornecedor')
+        else:
+           context = {
+             'form': form,
+
+           }
+           return render(request, 'fornecedor/create_fornecedor.html', context)
+
+def fornecedorVer(request, id):
+    fornecedor = Fornecedor.objects.get(id=id)
+    return render(request, 'fornecedor/detalhes_fornecedor.html', {'fornecedor':fornecedor})
+
+
+
+def fornecedorDetete(request, id):
+    fornecedor = Fornecedor.objects.get(id=id)
+    if request.method == "POST":
+        fornecedor.delete()
+        return redirect('listar_fornecedor')
+    else:
+        return render(request, 'fornecedor/delete_confirme.html', {'fornecedor': fornecedor})
+
+
+

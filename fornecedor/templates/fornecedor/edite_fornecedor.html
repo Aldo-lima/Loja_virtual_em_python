@@ -1,0 +1,63 @@
+{% extends "core/includes/base.html"%}
+{% load bootstrap %}
+{% block main %}
+
+<form method="post"  >
+    <div class="card"  id="card_fornecedor_edite">
+             <div class="card-header">
+                 Fornecedor
+             </div>
+             <div class="card-body">
+                    <div class="row">
+                       <div class="col-3">
+                          {{form.categoria|bootstrap}}
+                       </div>
+                       <div class="col-3">
+                           {{form.nome|bootstrap}}
+                       </div>
+                       <div class="col-6">
+                           {{form.nome_r|bootstrap}}
+                        </div>
+                     </div>
+                     <div class="row">
+                          <div class="col-4">
+                           {{form.CNPJ|bootstrap}}
+                          </div>
+                          <div class="col-4">
+                              {{form.escricao_estadual|bootstrap}}
+                           </div>
+                      </div>
+            </div>
+       </div>
+
+    ----------------------------------------------------------------------------
+
+    <div class="card" id="card_fornecedor_contato">
+         <div class="card-header">
+            Contato
+         </div>
+        <div class="card-body">
+         <div class="row">
+            {{formset.managemnt_form}}
+            {% for item_estoque_form in formset %}
+             <div class="col">
+            {{ formset.contato.nome|bootstrap}}
+             <div>
+            {% endfor %}
+         </div>
+
+        </div>
+    </div>
+
+         ----------------------------------------------------------------------------------
+
+
+
+
+    -------------------------------------------------------------------------------------------
+
+
+
+
+ </form>
+{% endblock %}
