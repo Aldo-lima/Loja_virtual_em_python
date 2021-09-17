@@ -1,9 +1,16 @@
 {% extends "core/includes/base.html"%}
 {% load bootstrap %}
 {% block main %}
-        <h2>tem certeza que deseja deletar: {{fornecedor.nome}}</h2>
+<div class="card" id="delete_confirme">
+  <h5 class="card-header">Featured</h5>
+  <div class="card-body">
+        tem certeza que deseja deletar: {{fornecedor.nome}}</h2>
         <form method="POST" action="">
           {% csrf_token %}
         <button class="btn btn-danger" type="submit">deletar</button>
        </form>
+  </div>
+</div>
+
+
 {% endblock %}

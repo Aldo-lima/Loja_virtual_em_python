@@ -34,13 +34,13 @@ width:300px;
 
 #cad_fornecedor {
 width:1120px;
-margin:150px 0px 0px 210px;
-position: absolute;
+margin:1500px 0px 0px 210px;
+position: relative;
 }
 
 #fornecedor {
 width:1120px;
-margin: 70px 0px 0px 210px;
+margin: 50px 0px 0px 210px;
 position: absolute;
 }
 
@@ -58,7 +58,7 @@ position: absolute;
 }
 #card_endereco {
 width:1120px;
-margin: 400px 0px 0px 210px;
+margin: 500px 0px 0px 210px;
 position: absolute;
 }
 
@@ -77,7 +77,7 @@ position: absolute;
 
 #card_edite_endereco {
 width:1120px;
-margin: 1300px 0px 0px 210px;
+margin: 500px 0px 0px 210px;
 position: absolute;
 
 }

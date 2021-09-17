@@ -14,7 +14,7 @@ def fornecedores(request):
 
 
 def novoFornecedor(request):
-       form = ForncedorForm
+       form = ForncedorForm()
        if request.method == "POST":
         form = ForncedorForm(request.POST)
        if form.is_valid():

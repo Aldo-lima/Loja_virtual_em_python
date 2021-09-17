@@ -28,7 +28,7 @@ width:300px;
 #cad_fornecedor {
 width:1120px;
 margin:1500px 0px 0px 210px;
-position: absolute;
+position: relative;
 }
 
 #fornecedor {
@@ -86,30 +86,7 @@ position: absolute;
 
 #form {
 width:1120px;
-margin: -150px 0px 0px 210px;
+margin: 15px 0px 0px 210px;
 position: absolute;
 }
-
-#form_contato{
-width:1120px;
-margin: 200px 0px 0px 210px;
-position: absolute;
-
-}
-
-#form_endereco {
-width:1120px;
-margin: 370px 0px 0px 210px;
-position: absolute;
-
-}
-#delete_confirme{
-width:1120px;
-margin: 70px 0px 0px 210px;
-position: absolute;
-}
-
-
-
-
 
