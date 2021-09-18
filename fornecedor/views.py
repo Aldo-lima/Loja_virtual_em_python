@@ -3,7 +3,39 @@ from django.urls import reverse
 from .models import Fornecedor
 from django.core.paginator import Paginator
 from .forms import ForncedorForm
+from core.forms import CotegoriaForm
+from core.models import Categoria
 
+
+def categorias(request):
+    search = request.GET.get('search')
+    if search:
+        categorias = Categoria.objects.filter(title_icontains=search)
+    else:
+        categoria_list = Categoria.objects.all()
+        paginator = Paginator(categoria_list, 10)
+        page = request.GET.get('page')
+        categorias = paginator.get_page(page)
+        form = CotegoriaForm
+        context = {
+            'categorias':categorias,
+            'form': form
+        }
+    return render(request, 'categoria/list_categoria.html', context)
+
+
+
+def novaCategoria(request):
+    if request.method == "POST":
+        form = CotegoriaForm(request.POST)
+    if form.is_valid():
+        form.save()
+        return redirect('listar_categoria')
+    else:
+        context = {
+            'form': form,
+        }
+        return render(request, 'categoria/list_categoria.html', context)
 
 def fornecedores(request):
     fornecedor_list = Fornecedor.objects.all()

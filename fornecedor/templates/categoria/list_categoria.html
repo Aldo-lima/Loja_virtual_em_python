@@ -1,0 +1,52 @@
+{% extends "core/includes/base.html"%}
+{% load bootstrap %}
+{% block main %}
+<div class="card" id="card_categoria">
+  <h5 class="card-header">Categoria</h5>
+  <div class="card-body">
+
+ <table  class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Categoria</th>
+      <th scope="col">
+
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+   {% for categoria in categorias %}
+    <tr>
+      <th scope="row">{{categoria.nome_categoria}}</th>
+    </tr>
+
+     {%endfor%}
+  </tbody>
+</table>
+  </div>
+
+</div>
+
+<div class="card" style="width: 18rem;"  id="form_categoria">
+  <div class="card-body">
+<p>
+  <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+    novo categoria
+  </a>
+
+</p>
+<div class="collapse" id="collapseExample">
+  <div class="card card-body">
+    <form action="{% url 'nova_categoria'%}" method="post">
+      {% csrf_token %}
+            {{form|bootstrap}}
+        <br>
+        <button type="submit" class="btn btn-outline-primary">Primary</button>
+    </form>
+
+  </div>
+</div>
+  </div>
+</div>
+
+{% endblock %}

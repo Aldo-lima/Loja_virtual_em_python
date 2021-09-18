@@ -1,10 +1,10 @@
 {% extends "core/includes/base.html"%}
 {% load bootstrap %}
 {% block main %}
-<div class="card" id="delete_confirme">
+      <div class="card" id="delete_confirme">
   <h5 class="card-header">Featured</h5>
   <div class="card-body">
-        tem certeza que deseja deletar: {{fornecedor.nome}}</h2>
+        tem certeza que deseja deletar: {{produto.produto}}</h2>
         <form method="POST" action="">
           {% csrf_token %}
         <button class="btn btn-danger" type="submit">
@@ -13,10 +13,9 @@
             <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
             </svg>
             Deletar</button>
-            <a href="{% url 'listar_fornecedor' %}" type="button" class="btn btn-outline-warning">Cancelar</a>
+            <a href="{% url 'listar_produto' %}" type="button" class="btn btn-outline-warning">Cancelar</a>
        </form>
+
   </div>
 </div>
-
-
 {% endblock %}
