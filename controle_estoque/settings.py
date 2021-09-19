@@ -80,9 +80,9 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'controle_estoque.wsgi.application'
 
-default_dburl= 'aqlite:///'+ os.path.join(BASE_DIR, 'db.sqlite3')
+default_dburl= 'sqlite:///'+ os.path.join(BASE_DIR, 'db.sqlite3')
 DATABASES = {
-    'defaut': config('DATABASE_URL', default_dburl, cast=dburl),
+    'default': config('DATABASE_URL', default_dburl, cast=dburl),
 }
 
 
