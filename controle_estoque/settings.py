@@ -44,7 +44,7 @@ INSTALLED_APPS = [
     'produto',
     'fornecedor',
     'bootstrapform',
-    'dj-static',
+
 
 ]
 
