@@ -40,7 +40,7 @@ def fornecedores(request):
     else:
 
         fornecedor_list = Fornecedor.objects.all()
-        paginator = Paginator(fornecedor_list, 6)
+        paginator = Paginator(fornecedor_list, 5)
         page = request.GET.get('page')
         fornecedores = paginator.get_page(page)
     return render(request, 'fornecedor/list_fornecedor.html', {'fornecedores': fornecedores})

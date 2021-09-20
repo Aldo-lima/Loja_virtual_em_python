@@ -8,6 +8,19 @@ margin:0px 0px 0px -12px;
  height: 50px;
 position:fixed ;
 }
+#nav1 li a{
+color: #9d9d9d;
+padding:0px 0px 0px 90px;
+}
+#n span {
+color: #9d9d9d;
+}
+
+.texto ul li a{
+color: #9d9d9d;
+margin:15px 0px 0px 5px;
+
+}
 
 #logo {
  height: 3rem;
@@ -134,5 +147,45 @@ position: absolute;
 #form_categoria {
 margin: 70px 0px 0px 800px;
 position: absolute;
+}
+
+#card_busca_categoria {
+margin: 200px 0px 0px 800px;
+position: absolute;
+
+}
+
+#car_index {
+width:1120px;
+margin: 70px 0px 0px 210px;
+position: absolute;
+
+}
+
+/* Paginação */
+
+
+.pagination {
+margin-buttom:20px;
+
+}
+.step-links{
+   position:relative;
+   margin-left: auto;
+   margin-right: auto;
+}
+
+.setep-links .current {
+ margin-left: 5px;
+   margin-right: 5px;
+}
+
+
+#em_andamento {
+ height: 3rem;
+}
+
+.a_comecar {
+ height: 3rem;
 }
 
