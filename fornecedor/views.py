@@ -8,12 +8,8 @@ from core.models import Categoria
 
 
 def categorias(request):
-    search = request.GET.get('search')
-    if search:
-        categorias = Categoria.objects.filter(title_icontains=search)
-    else:
         categoria_list = Categoria.objects.all()
-        paginator = Paginator(categoria_list, 10)
+        paginator = Paginator(categoria_list, 5)
         page = request.GET.get('page')
         categorias = paginator.get_page(page)
         form = CotegoriaForm
@@ -21,7 +17,7 @@ def categorias(request):
             'categorias':categorias,
             'form': form
         }
-    return render(request, 'categoria/list_categoria.html', context)
+        return render(request, 'categoria/list_categoria.html', context)
 
 
 
@@ -38,10 +34,15 @@ def novaCategoria(request):
         return render(request, 'categoria/list_categoria.html', context)
 
 def fornecedores(request):
-    fornecedor_list = Fornecedor.objects.all()
-    paginator = Paginator(fornecedor_list, 10)
-    page = request.GET.get('page')
-    fornecedores = paginator.get_page(page)
+    search = request.GET.get('search')
+    if search:
+        fornecedores = Fornecedor.objects.filter(nome__icontains=search)
+    else:
+
+        fornecedor_list = Fornecedor.objects.all()
+        paginator = Paginator(fornecedor_list, 6)
+        page = request.GET.get('page')
+        fornecedores = paginator.get_page(page)
     return render(request, 'fornecedor/list_fornecedor.html', {'fornecedores': fornecedores})
 
 

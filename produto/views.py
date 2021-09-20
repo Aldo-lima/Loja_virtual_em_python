@@ -6,10 +6,14 @@ from .forms import ProdutoForm
 
 
 def produtos(request):
-    produto_list = Produto.objects.all()
-    paginator = Paginator(produto_list, 10)
-    page = request.GET.get('page')
-    produtos = paginator.get_page(page)
+    search = request.GET.get('search')
+    if search:
+        produtos = Produto.objects.filter(produto__icontains=search)
+    else:
+        produto_list = Produto.objects.all()
+        paginator = Paginator(produto_list, 5)
+        page = request.GET.get('page')
+        produtos = paginator.get_page(page)
     return render(request, 'produto/list_produto.html', {'produtos': produtos})
 
 
