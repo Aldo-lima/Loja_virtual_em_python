@@ -20,7 +20,7 @@ class Fornecedor(models.Model):
     escricao_estadual = models.CharField('Escrição Estadual', max_length=100)
     rua = models.CharField('Rua', max_length=200)
     cep = models.CharField('CEP', max_length=10)
-    numero = models.IntegerField('Numéro')
+    numero = models.IntegerField('Numéro:')
     cidade = models.CharField('Cidade', max_length=50)
     bairro = models.CharField('Bairro', max_length=30)
     proximidade = models.CharField(max_length=30)

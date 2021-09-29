@@ -53,7 +53,7 @@ position: absolute;
 
 #fornecedor {
 width:1120px;
-margin: 15px 0px 0px 210px;
+margin: 70px 0px 0px 210px;
 position: absolute;
 }
 
@@ -156,7 +156,8 @@ position: absolute;
 }
 
 #car_index {
-margin: 70px 0px 0px 800px;
+width:1120px;
+margin: 70px 0px 0px 210px;
 position: absolute;
 
 }
@@ -177,6 +178,15 @@ margin-buttom:20px;
 .setep-links .current {
  margin-left: 5px;
    margin-right: 5px;
+}
+
+
+#em_andamento {
+ height: 3rem;
+}
+
+.a_comecar {
+ height: 3rem;
 }
 
 
